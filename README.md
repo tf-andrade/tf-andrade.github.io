@@ -6,11 +6,15 @@ Site pessoal de **Tiago Andrade**, publicado via [GitHub Pages](https://pages.gi
 
 ## Sobre
 
-Página única (single-page), sem dependências e sem build. Todo o conteúdo,
-estilo e estrutura ficam em um só arquivo: [`index.html`](index.html).
-O CSS está embutido na própria página (`<style>` no `<head>`).
+Página única (single-page), HTML estático e leve (~16 KB), sem build e sem
+framework. Todo o conteúdo, estilo e estrutura ficam em um só arquivo:
+[`index.html`](index.html), com o CSS embutido no `<style>` do `<head>` e o
+conteúdo já renderizado no HTML (nada montado por JavaScript).
 
-Seções: Hero · About · Experience · Articles & Talks · Contact.
+A única dependência externa é a tipografia, via Google Fonts (Newsreader,
+IBM Plex Sans e IBM Plex Mono).
+
+Seções: Hero · About · Experience · Writing & Talks · Contact.
 
 ## Como atualizar
 

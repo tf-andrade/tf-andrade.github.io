@@ -11,23 +11,32 @@ dependências e sem framework**.
 ## Arquitetura
 
 - Tudo vive em `index.html`: o HTML e o CSS (embutido em `<style>` no `<head>`).
-  Não há arquivos JS, nem pasta de assets, nem package.json.
-- O design usa variáveis CSS definidas em `:root` (cores, fonte). Reaproveite
-  essas variáveis (`--bg`, `--surface`, `--border`, `--text`, `--muted`,
-  `--accent`, etc.) em vez de cores fixas (hardcoded).
-- Layout: container central de `max-width: 720px`. Seções separadas por
-  `border-bottom`. Tema escuro.
-- Há um breakpoint responsivo em `@media (max-width: 600px)`.
+  Não há arquivos JS, nem pasta de assets, nem package.json. O conteúdo já vem
+  renderizado no HTML (nada é montado por JavaScript).
+- Tema claro. O design usa variáveis CSS definidas em `:root`. Reaproveite essas
+  variáveis (`--accent` é a cor de destaque terracota `#b1502f`; além de `--bg`,
+  `--ink`, `--body`, `--muted`, `--line`, etc.) em vez de cores fixas.
+- Tipografia em três famílias do Google Fonts, carregadas por um único `<link>`
+  no `<head>`: **Newsreader** (serifada, para títulos/leads), **IBM Plex Sans**
+  (corpo) e **IBM Plex Mono** (rótulos/eyebrows). Expostas como `--serif`,
+  `--sans`, `--mono`. Esta é a única dependência externa do site.
+- Layout: container `.wrap` central de `max-width: 1080px`. Cada seção usa
+  `.section-grid` (grid de duas colunas: rótulo de 200px + conteúdo) separada
+  por `border-top`.
+- Responsivo: breakpoints em `@media (max-width: 720px)` (colunas viram uma só)
+  e `@media (max-width: 480px)` (esconde os links do nav).
 
 ## Convenções
 
 - Mantenha tudo em um único arquivo `index.html` a menos que o usuário peça
   explicitamente para separar CSS/JS.
 - Ao adicionar conteúdo, siga o padrão das seções existentes (classes como
-  `.exp-item`, `.article-item`, `.contact-link`).
+  `.exp-item`, `.row` para itens de writing/talks, `.contact-row`).
+- Velocidade e peso são prioridade do usuário: mantenha o HTML enxuto (hoje
+  ~16 KB) e **não introduza React, frameworks ou bundlers**. Evite novas
+  dependências externas (CDNs etc.) sem alinhar antes.
 - Texto da interface está em inglês; comentários e PR/commits podem ser em
   português (o usuário é brasileiro).
-- Não introduza dependências externas (CDNs, frameworks) sem alinhar antes.
 
 ## Como publicar
 
